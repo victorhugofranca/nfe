@@ -10,10 +10,10 @@ import javax.jms.TextMessage;
 
 //@Stateless
 // @Path("/responseProcessor")
-@MessageDriven(mappedName = "java:/jms/queue/clienteResponseProcessment", activationConfig = {
+@MessageDriven(mappedName = "java:/jms/queue/responseSefazProcessment", activationConfig = {
 		@ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge"),
 		@ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
-		@ActivationConfigProperty(propertyName = "destination", propertyValue = "client_response_processment") })
+		@ActivationConfigProperty(propertyName = "destination", propertyValue = "response_sefaz_processment") })
 public class ResponseProcessor implements MessageListener {
 
 	@EJB

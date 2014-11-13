@@ -26,7 +26,7 @@ public class RequestProcessor {
 	@EJB
 	private ResponsePool responsePool;
 
-	@Resource(mappedName = "java:/jms/queue/clienteRequestProcessment")
+	@Resource(mappedName = "java:/jms/queue/requestSefazProcessment")
 	private Queue queue;
 
 	@Inject
