@@ -55,8 +55,8 @@ public class InfNFeBuilder implements ObjectBuilder<InfNFe> {
 					.toString());
 		} catch (ParseException e) {
 			e.printStackTrace();
-			throw new ObjectBuilderException(
-					ObjectBuilderExceptionType.DATA_FORMATO_INVALIDO);
+//			throw new ObjectBuilderException(
+//					ObjectBuilderExceptionType.DATA_FORMATO_INVALIDO);
 		}
 
 		return infNFe;

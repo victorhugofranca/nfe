@@ -1,4 +1,4 @@
-package br.com.sige.edoc.sefaz.response.xml.processor;
+package br.com.sigen.edoc.sefaz.response.xml.processor;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.EJB;

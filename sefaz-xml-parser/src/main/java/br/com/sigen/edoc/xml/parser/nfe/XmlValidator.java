@@ -17,12 +17,11 @@ import org.xml.sax.SAXException;
 public class XmlValidator {
 
 	public void validate(byte[] xmlByteArray) {
-		
+
 		InputStream xmlInputStream = new ByteArrayInputStream(xmlByteArray);
 
-		ClassLoader classLoader = getClass().getClassLoader();
-		File schemaFile = new File(classLoader.getResource(
-				"xsd//pl_008e//enviNFe_v3.10.xsd").getFile());
+		String filePath = "//Users//victorfranca//desenvolvimento//workspace_nfe//sefaz-xml-canonico//src//main//resources//xsd//pl_008e//enviNFe_v3.10.xsd";
+		File schemaFile = new File(filePath);
 
 		Source xmlFile = new StreamSource(xmlInputStream);
 		SchemaFactory schemaFactory = SchemaFactory
@@ -47,5 +46,4 @@ public class XmlValidator {
 			e.printStackTrace();
 		}
 	}
-
 }

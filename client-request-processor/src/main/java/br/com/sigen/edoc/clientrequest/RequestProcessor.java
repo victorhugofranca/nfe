@@ -56,7 +56,7 @@ public class RequestProcessor {
 
 		responsePool.put(asyncResponse);
 
-		sendMessage("\n Enviando para triagem: " + crunchifyBuilder.toString()
+		sendMessage("\n Enviando processamento SEFAZ: " + crunchifyBuilder.toString()
 				+ "\n");
 	}
 

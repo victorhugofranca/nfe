@@ -21,6 +21,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.ObjectBuilderException;
+//import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.ObjectBuilderException;
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.ObjectBuilderFacade;
 import br.com.sigen.edoc.xml.parser.nfe.signer.DigitalSigner;
 import br.inf.portalfiscal.nfe.TEnviNFe;
@@ -29,12 +30,20 @@ public class XmlGenerator {
 
 	public static void main(String[] args) throws IOException,
 			ObjectBuilderException {
+		XmlGenerator xmlGenerator = new XmlGenerator();
+		xmlGenerator.test();
+	}
+
+	public void test() throws IOException
+	// , ObjectBuilderException
+	{
 
 		// /////////////GERAR JSON
 		byte[] jsonEncoded = Files
 				.readAllBytes(Paths
 						.get("//Users//victorfranca//desenvolvimento//workspace_nfe//testDataGeneration//nfe1.json"));
 		String json = new String(jsonEncoded, StandardCharsets.UTF_8);
+		// System.out.println(json);
 		// NfeDataPool nfeDataPool = NfeDataPool.instance();
 		// nfeDataPool.addNfeData("1", json);
 
@@ -47,9 +56,17 @@ public class XmlGenerator {
 			throw new RuntimeException("Erro ao realizar parse do Json");
 		}
 
+		// System.out.println(jsonObject.toJSONString());
+
 		// ///////////GERAR XML
 		ObjectBuilderFacade facade = new ObjectBuilderFacade();
-		TEnviNFe tEnviNFe = facade.buildEnviFe(jsonObject);
+		TEnviNFe tEnviNFe = null;
+		try {
+			tEnviNFe = facade.buildEnviFe(jsonObject);
+		} catch (ObjectBuilderException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		String xml = null;
 		try {
 
@@ -81,12 +98,14 @@ public class XmlGenerator {
 			// .replace("xmlns:nf2=", "xmlns=")
 			;
 
+			// System.out.println(xml);
+
 		} catch (JAXBException e) {
-			e.printStackTrace();
+			throw new RuntimeException("Erro ao gerar XML");
 		} catch (XMLStreamException e) {
-			e.printStackTrace();
+			throw new RuntimeException("Erro ao gerar XML");
 		} catch (FactoryConfigurationError e) {
-			e.printStackTrace();
+			throw new RuntimeException("Erro ao gerar XML");
 		}
 
 		// ASSINAR XML
@@ -100,11 +119,10 @@ public class XmlGenerator {
 			System.out.println(new String(xmlAssinado));
 		} catch (Exception e) {
 			e.printStackTrace();
+			throw new RuntimeException("Erro ao assinar XML: " + e.getMessage());
 		}
 
-		// System.out.println(xml);
-
-		// /////////////VALIDAR XML
+		// ///////////VALIDAR XML
 		XmlValidator xmlValidator = new XmlValidator();
 		xmlValidator.validate(xmlAssinado);
 
