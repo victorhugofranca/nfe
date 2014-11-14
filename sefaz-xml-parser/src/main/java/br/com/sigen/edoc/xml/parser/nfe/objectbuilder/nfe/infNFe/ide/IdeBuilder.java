@@ -22,9 +22,6 @@ public class IdeBuilder implements ObjectBuilder<Ide> {
 		ObjectFactory objectFactory = new ObjectFactory();
 		Ide ide = objectFactory.createTNFeInfNFeIde();
 
-		// TODO: CARREGAR O DV DA CHAVE DE ACESSO
-		ide.setCDV("1");
-
 		ide.setCMunFG(String.valueOf(map.get("inf_nfe_cod_mun_fg")));
 
 		// TODO: Parametrize
@@ -49,7 +46,7 @@ public class IdeBuilder implements ObjectBuilder<Ide> {
 		// 1=Operação interna;
 		// 2=Operação interestadual;
 		// 3=Operação com exterior.
-		ide.setIdDest("1");
+		ide.setIdDest("2");
 
 		// TODO: Parametrize
 		// 0=Não;

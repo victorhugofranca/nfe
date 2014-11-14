@@ -7,7 +7,6 @@ import br.com.sigen.edoc.xml.parser.nfe.Config;
 import br.com.sigen.edoc.xml.parser.nfe.DateHelper;
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.ObjectBuilder;
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.ObjectBuilderException;
-import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.ObjectBuilderExceptionType;
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.nfe.infNFe.cobr.CobrBuilder;
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.nfe.infNFe.dest.DestBuilder;
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.nfe.infNFe.det.DetBuilder;
@@ -46,17 +45,21 @@ public class InfNFeBuilder implements ObjectBuilder<InfNFe> {
 		infNFe.getDet().addAll(detBuilder.build(map));
 
 		try {
-			infNFe.setId(new ChaveAcessoHelper(infNFe.getIde().getCUF(),
-					DateHelper.strToStr(infNFe.getIde().getDhEmi(),
-							"yyyy-MM-dd'T'HH:mm:ssXXX", "yyMM"), infNFe
-							.getEmit().getCNPJ(), infNFe.getIde().getMod(),
-					infNFe.getIde().getSerie(), infNFe.getIde().getNNF(),
-					infNFe.getIde().getTpEmis(), infNFe.getIde().getCNF())
-					.toString());
+			ChaveAcessoHelper chaveAcessoHelper = new ChaveAcessoHelper(infNFe
+					.getIde().getCUF(), DateHelper.strToStr(infNFe.getIde()
+					.getDhEmi(), "yyyy-MM-dd'T'HH:mm:ssXXX", "yyMM"), infNFe
+					.getEmit().getCNPJ(), infNFe.getIde().getMod(), infNFe
+					.getIde().getSerie(), infNFe.getIde().getNNF(), infNFe
+					.getIde().getTpEmis(), infNFe.getIde().getCNF());
+
+			infNFe.setId(chaveAcessoHelper.toString());
+
+			infNFe.getIde().setCDV(chaveAcessoHelper.getcDV());
+			
 		} catch (ParseException e) {
 			e.printStackTrace();
-//			throw new ObjectBuilderException(
-//					ObjectBuilderExceptionType.DATA_FORMATO_INVALIDO);
+			// throw new ObjectBuilderException(
+			// ObjectBuilderExceptionType.DATA_FORMATO_INVALIDO);
 		}
 
 		return infNFe;

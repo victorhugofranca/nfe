@@ -10,6 +10,7 @@ import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.nfe.infNFe.dest.DestBuilde
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.nfe.infNFe.det.DetBuilder;
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.nfe.infNFe.det.imposto.ImpostoBuilder;
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.nfe.infNFe.det.imposto.cofins.CofinsBuilder;
+import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.nfe.infNFe.det.imposto.cofins.cofinsliq.CofinsAliqBuilder;
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.nfe.infNFe.det.imposto.cofinsst.CofinsSTBuilder;
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.nfe.infNFe.det.imposto.icms.ICMSBuilder;
 import br.com.sigen.edoc.xml.parser.nfe.objectbuilder.nfe.infNFe.det.imposto.icms.icms00.Icms00Builder;
@@ -168,7 +169,15 @@ public class ObjectBuilderFactory extends ObjectBuilderAbstractFactory {
 
 	@Override
 	public CofinsBuilder createInfNfeDetImpostoCofinsBuilder() {
-		return new CofinsBuilder();
+		CofinsBuilder cofinsBuilder = new CofinsBuilder();
+		cofinsBuilder
+				.setCofinsAliqBuilder(createInfNfeDetImpostoCofinsAliqBuilder());
+		return cofinsBuilder;
+	}
+
+	@Override
+	public CofinsAliqBuilder createInfNfeDetImpostoCofinsAliqBuilder() {
+		return new CofinsAliqBuilder();
 	}
 
 	@Override

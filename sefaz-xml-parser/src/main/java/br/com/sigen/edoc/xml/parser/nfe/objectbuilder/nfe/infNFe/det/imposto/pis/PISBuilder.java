@@ -27,9 +27,11 @@ public class PISBuilder implements ObjectBuilder<PIS> {
 		PIS pis = objectFactory.createTNFeInfNFeDetImpostoPIS();
 
 		pis.setPISAliq(pisAliqBuilder.build(map));
-		pis.setPISNT(pisNTBuilder.build(map));
-		pis.setPISOutr(pisOutrBuilder.build(map));
-		pis.setPISQtde(pisQtdeBuilder.build(map));
+
+		// TODO: parametrize
+		// pis.setPISNT(pisNTBuilder.build(map));
+		// pis.setPISOutr(pisOutrBuilder.build(map));
+		// pis.setPISQtde(pisQtdeBuilder.build(map));
 
 		return pis;
 	}

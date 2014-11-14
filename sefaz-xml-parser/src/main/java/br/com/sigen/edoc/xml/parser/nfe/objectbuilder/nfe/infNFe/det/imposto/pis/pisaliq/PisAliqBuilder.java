@@ -11,7 +11,16 @@ public class PisAliqBuilder implements ObjectBuilder<PISAliq> {
 
 	@Override
 	public PISAliq build(Map<String, Object> map) throws ObjectBuilderException {
-		return new ObjectFactory().createTNFeInfNFeDetImpostoPISPISAliq();
-	}
+		PISAliq pisAliq = new ObjectFactory()
+				.createTNFeInfNFeDetImpostoPISPISAliq();
 
+		// TODO: parametrize
+		pisAliq.setCST(String.valueOf(map.get("pis_situacao_tributaria")));
+		pisAliq.setPPIS(String.valueOf(map.get("pis_aliquota")));
+		pisAliq.setVBC(String.valueOf(map.get("pis_valor_bc")));
+		pisAliq.setVPIS(String.valueOf(map.get("pis_valor")));
+		
+		return pisAliq;
+
+	}
 }

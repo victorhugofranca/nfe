@@ -126,9 +126,9 @@ public class ChaveAcessoHelper {
 		int variavel = 2;
 		int total = 0;
 		int dv = 0;
-
 		for (int i = aux.length - 1; i >= 0; i--) {
 			aux[i] = Integer.parseInt("" + chaveSemDigito.charAt(i));
+
 			aux[i] = aux[i] * variavel;
 			variavel++;
 

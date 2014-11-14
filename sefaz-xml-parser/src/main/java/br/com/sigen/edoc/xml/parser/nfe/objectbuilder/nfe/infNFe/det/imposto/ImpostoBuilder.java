@@ -31,30 +31,33 @@ public class ImpostoBuilder implements ObjectBuilder<Imposto> {
 		ObjectFactory objectFactory = new ObjectFactory();
 
 		Imposto imposto = objectFactory.createTNFeInfNFeDetImposto();
-//		imposto.getContent().add(
-//				objectFactory.createTNFeInfNFeDetImpostoCOFINS(cofinsBuilder
-//						.build(map)));
-//		imposto.getContent().add(
-//				objectFactory.createTNFeInfNFeDetImpostoCOFINSST(cofinSTBuilder
-//						.build(map)));
+		// imposto.getContent().add(
+		// objectFactory.createTNFeInfNFeDetImpostoCOFINSST(cofinSTBuilder
+		// .build(map)));
 		imposto.getContent().add(
 				objectFactory.createTNFeInfNFeDetImpostoICMS(icmsBuilder
 						.build(map)));
-//		imposto.getContent()
-//				.add(objectFactory.createTNFeInfNFeDetImpostoII(iiBuilder
-//						.build(map)));
-//		imposto.getContent().add(
-//				objectFactory.createTNFeInfNFeDetImpostoIPI(ipiBuilder
-//						.build(map)));
-//		imposto.getContent().add(
-//				objectFactory.createTNFeInfNFeDetImpostoISSQN(issqnBuilder
-//						.build(map)));
-//		imposto.getContent().add(
-//				objectFactory.createTNFeInfNFeDetImpostoPIS(pisBuilder
-//						.build(map)));
-//		imposto.getContent().add(
-//				objectFactory.createTNFeInfNFeDetImpostoPISST(pisSTBuilder
-//						.build(map)));
+
+		// imposto.getContent()
+		// .add(objectFactory.createTNFeInfNFeDetImpostoII(iiBuilder
+		// .build(map)));
+		// imposto.getContent().add(
+		// objectFactory.createTNFeInfNFeDetImpostoIPI(ipiBuilder
+		// .build(map)));
+		// imposto.getContent().add(
+		// objectFactory.createTNFeInfNFeDetImpostoISSQN(issqnBuilder
+		// .build(map)));
+		imposto.getContent().add(
+				objectFactory.createTNFeInfNFeDetImpostoPIS(pisBuilder
+						.build(map)));
+		
+		imposto.getContent().add(
+				objectFactory.createTNFeInfNFeDetImpostoCOFINS(cofinsBuilder
+						.build(map)));
+
+		// imposto.getContent().add(
+		// objectFactory.createTNFeInfNFeDetImpostoPISST(pisSTBuilder
+		// .build(map)));
 
 		return imposto;
 	}

@@ -21,7 +21,7 @@ public class IcmsTotBuilder implements ObjectBuilder<ICMSTot> {
 		icmsTot.setVICMS(String.valueOf(map.get("total_icms_total")));
 		
 		//TODO checar esta informação
-		icmsTot.setVICMSDeson(String.valueOf(map.get("total_icms_total")));
+		icmsTot.setVICMSDeson("0.00");
 		
 		icmsTot.setVII(String.valueOf(map.get("total_ii")));
 		icmsTot.setVIPI(String.valueOf(map.get("total_ipi")));

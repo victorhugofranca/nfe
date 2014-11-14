@@ -1,7 +1,7 @@
 package br.com.sigen.edoc.xml.parser.nfe.objectbuilder;
 
 public abstract class ObjectBuilderAbstractFactory {
-	
+
 	public abstract ObjectBuilder createEnviNFeBuilder();
 
 	public abstract ObjectBuilder createNFeBuilder();
@@ -22,12 +22,14 @@ public abstract class ObjectBuilderAbstractFactory {
 
 	public abstract ObjectBuilder createInfNfeDetImpostoCofinsBuilder();
 
+	public abstract ObjectBuilder createInfNfeDetImpostoCofinsAliqBuilder();
+
 	public abstract ObjectBuilder createInfNfeDetImpostoCofinsSTBuilder();
 
 	public abstract ObjectBuilder createInfNfeDetImpostoIcmsBuilder();
 
 	public abstract ObjectBuilder createInfNfeDetImpostoIcmsIcms00Builder();
-	
+
 	public abstract ObjectBuilder createInfNfeDetImpostoIcmsIcms60Builder();
 
 	public abstract ObjectBuilder createInfNfeDetImpostoIIBuilder();
