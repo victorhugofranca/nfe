@@ -29,7 +29,7 @@ public class ChaveAcessoHelper {
 
 	public ChaveAcessoHelper(String cUF, String aaMM, String cnpj, String mod,
 			String serie, String nNF, String tpEmis, String cNF) {
-
+		
 		this.cUF = cUF;
 		this.aaMM = aaMM;
 		this.cnpj = cnpj;

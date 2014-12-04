@@ -112,10 +112,10 @@ public class XmlGenerator {
 		DigitalSigner digitalSigner = new DigitalSigner();
 		FileInputStream certificado = new FileInputStream(
 				new File(
-						"//Users//victorfranca//Dropbox//SIGEN//FATURAMENTO//certificado_digital//2014.pfx"));
+						"//Users//victorfranca//desenvolvimento//workspace_nfe//sefaz-xml-parser//src//main//resources//franca.pfx"));
 		byte[] xmlAssinado = null;
 		try {
-			xmlAssinado = digitalSigner.sign(xml, certificado, "acloex");
+			xmlAssinado = digitalSigner.sign(xml, certificado, "123456");
 			System.out.println(new String(xmlAssinado));
 		} catch (Exception e) {
 			e.printStackTrace();
